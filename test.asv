@@ -1,0 +1,18 @@
+% m=7;
+% n=8;
+% d=rand(m,n);
+% [x,y]=meshgrid(1:n,1:m);
+% plot3(x,y,d);grid on;
+
+clear
+clc
+
+x1 = -10:0.1:10;
+x2 = -10:0.1:10;
+[x1,x2] = meshgrid(x1,x2);
+a = 1;
+b = -1.5;
+c = 0.5;
+d = -1.5;
+
+x3 = (-a/c)*x1

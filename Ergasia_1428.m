@@ -3,6 +3,17 @@ clc
 
 load('exdata.mat');
 
+% 1, -1.5, 0.5, -1.5
+a = 1;
+b = -1.5;
+c = 0.5;
+d = -1.5;
+
+%a = 1;
+%b = 1;
+%c = 0.3;
+%d = -1.5;
+
 XX=p;
 yy=t;
 
@@ -17,5 +28,7 @@ figure(2);
 plot3(x1,y1,z1,'ro');
 hold on;
 plot3(x2,y2,z2,'b*');
+hold on;
+Decision(a,b,c,d);
 grid on;
 grid minor;
