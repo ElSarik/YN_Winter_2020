@@ -32,4 +32,5 @@ grid on;
 grid minor;
 hold on;
 %% Execution the Perceptron algorithm
-Perceptron(X1,X2,X3,Y);
+% Perceptron(X1,X2,X3,Y);
+PerceptronV2(X1,X2,X3,Y);
