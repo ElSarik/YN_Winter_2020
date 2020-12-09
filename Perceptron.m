@@ -1,10 +1,10 @@
 %% Sarikakis Ilias - Ioannis AM:1428
 %%
 function p = Perceptron(X1,X2,X3,Y)
-    W0 = 0.2;
-    W1 = 1;     % Weights initialization with randomly selected values.
-    W2 = 0.6;
-    W3 = 1.1;
+    W0 = -1+rand(1,1)*2;
+    W1 = -1+rand(1,1)*2;     % Weights initialization with randomly selected values.
+    W2 = -1+rand(1,1)*2;
+    W3 = -1+rand(1,1)*2;
     
     B = 1;
     LR = 0.3; 	% Bias, Learning Rate, and maximum number of Epochs initialization
