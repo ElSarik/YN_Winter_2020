@@ -1,11 +1,6 @@
 %% Sarikakis Ilias - Ioannis AM:1428
-%%
-function p = PerceptronV2(X1,X2,X3,Y)
-    W0 = -1+rand(1,1)*2;
-    W1 = -1+rand(1,1)*2;     % Weights initialization with randomly selected values.
-    W2 = -1+rand(1,1)*2;
-    W3 = -1+rand(1,1)*2;
-    
+%% Perceptron.m with weight distance as terminal condition
+function p = PerceptronV2(X1,X2,X3,Y,W1,W2,W3,W0)
     B = 1;
     LR = 0.3; 	% Bias, Learning Rate, and maximum number of Epochs initialization
     Epoch = 100;
@@ -15,7 +10,7 @@ function p = PerceptronV2(X1,X2,X3,Y)
     Wk = [W0, W1, W2, W3];  % epsilon, Wk, and Wk_Plus1 initialization
     Wk_Plus1 = zeros(size(Wk));
 %% Perceptron Algorithm
-    while ((Epoch ~= 0)) % Algorithm ends once we have run out of Epochs
+    while (Epoch ~= 0) % Algorithm ends once we have run out of Epochs
                                                      
                                                      
         p=Decision(W1,W2,W3,W0);    % Calling the Decision function with
@@ -49,7 +44,7 @@ function p = PerceptronV2(X1,X2,X3,Y)
                                             % weights gets calculated
                                             
         if(distance < epsilon)  % End condition
-            disp(Epoch_completed);  % Display of completed Epochs
+            fprintf('Second Perceptron finished in %d epochs.\n', Epoch_completed);  % Display of completed Epochs
             delete(p);      % Removing and updating the plane with the final weights
             p=Decision(W1,W2,W3,W0);
             return;

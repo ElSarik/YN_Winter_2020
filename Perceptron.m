@@ -1,11 +1,6 @@
 %% Sarikakis Ilias - Ioannis AM:1428
-%%
-function p = Perceptron(X1,X2,X3,Y)
-    W0 = -1+rand(1,1)*2;
-    W1 = -1+rand(1,1)*2;     % Weights initialization with randomly selected values.
-    W2 = -1+rand(1,1)*2;
-    W3 = -1+rand(1,1)*2;
-    
+%% Original Perceptron Algorithm
+function p = Perceptron(X1,X2,X3,Y,W1,W2,W3,W0)
     B = 1;
     LR = 0.3; 	% Bias, Learning Rate, and maximum number of Epochs initialization
     Epoch = 100;
@@ -56,5 +51,5 @@ function p = Perceptron(X1,X2,X3,Y)
     end                 % it will get refreshed with the new weights during the next epoch.
     
     p=Decision(W1,W2,W3,W0);    % Plot of the final boundary plane, based on the final weights.
-    disp(Epoch_completed);
+    fprintf('First Perceptron finished in %d epochs.\n', Epoch_completed);  % % Display of completed Epochs
 end
