@@ -2,7 +2,7 @@
 %% Original Perceptron Algorithm
 function p = Perceptron(X1,X2,X3,Y,W1,W2,W3,W0)
     B = 1;
-    LR = 0.3; 	% Bias, Learning Rate, and maximum number of Epochs initialization
+    LR = 0.15; 	% Bias, Learning Rate, and maximum number of Epochs initialization
     Epoch = 100;
     Epoch_completed = 0;
     
