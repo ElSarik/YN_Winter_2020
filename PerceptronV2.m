@@ -2,12 +2,12 @@
 %% Perceptron.m with weight distance as terminal condition
 function p = PerceptronV2(X1,X2,X3,Y,W1,W2,W3,W0)
     B = 1;
-    LR = 0.3; 	% Bias, Learning Rate, and maximum number of Epochs initialization
+    LR = 0.15; 	% Bias, Learning Rate, and maximum number of Epochs initialization
     Epoch = 100;
     Epoch_completed = 0;
     
     epsilon = 0.01;
-    distance = epsilon;
+%     distance = epsilon;
     Wk = [W0, W1, W2, W3];  % epsilon, Wk, and Wk_Plus1 initialization
     Wk_Plus1 = zeros(size(Wk));
 %% Perceptron Algorithm
@@ -46,30 +46,20 @@ function p = PerceptronV2(X1,X2,X3,Y,W1,W2,W3,W0)
                                                         % weights gets calculated
                 end
             end
-
-            if(distance < epsilon)  % End condition
-                fprintf('Second Perceptron finished in %d epochs.\n', Epoch_completed);  % Display of completed Epochs
-                delete(p);      % Removing and updating the plane with the final weights
-                p=Decision(W1,W2,W3,W0);
-                return;
-            else
-                Wk = Wk_Plus1;  % The old weights get updated with the newer weights
-            end
-            
         end
-        
-%         Wk_Plus1=[W0,W1,W2,W3]; % Wk_Plus1 gets updated with the new weights
+
         distance = Distance(Wk, Wk_Plus1);  % The distance between the old and the new
                                             % weights gets calculated
+%         disp(distance);
                                             
-%         if(distance < epsilon)  % End condition
-%             fprintf('Second Perceptron finished in %d epochs.\n', Epoch_completed);  % Display of completed Epochs
-%             delete(p);      % Removing and updating the plane with the final weights
-%             p=Decision(W1,W2,W3,W0);
-%             return;
-%         else
-%             Wk = Wk_Plus1;  % The old weights get updated with the newer weights
-%         end
+        if(distance < epsilon)  % End condition
+            fprintf('Second Perceptron finished in %d epochs.\n', Epoch_completed);  % Display of completed Epochs
+            delete(p);      % Removing and updating the plane with the final weights
+            p=Decision(W1,W2,W3,W0);
+            return;
+        else
+            Wk = Wk_Plus1;  % The old weights get updated with the newer weights
+        end
         
         Epoch = Epoch - 1;    % Epoch reduction after its completion
         Epoch_completed = Epoch_completed + 1;
