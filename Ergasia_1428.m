@@ -3,7 +3,8 @@
 clear
 clc
 
-load('exdata.mat','p','t'); % Loading of exdata.mat
+% load('exdata.mat','p','t'); % Loading of exdata.mat
+load('exdata_new.mat','p','t'); % Loading of exdata.mat
 %%
 x1 = p(1,t(1,:)==1);
 y1 = p(2,t(1,:)==1);    % Separating the pattern coordinates
