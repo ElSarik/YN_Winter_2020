@@ -43,29 +43,41 @@ Perceptron(X1,X2,X3,Y,W1,W2,W3,W0);
 PerceptronV2(X1,X2,X3,Y,W1,W2,W3,W0);
 
 %% Results Section:
-%% NOTES: epsilon is located in line 9 of PerceptronV2.m
+%% NOTES: 
+% - epsilon is located in line 9 of PerceptronV2.m
 
-% P1 = Is the original Perceptron algorithm.
-% P2 = Has the weight distance as a terminal condition.
+% - P1 = Is the original Perceptron algorithm.
+% - P2 = Has the weight distance as a terminal condition.
 
-% Same dataset, same initial weights, same learning rate, different epsilon value.
+% - Same dataset, same initial weights, same learning rate, different epsilon value.
 
 %% Observations:
 % - Since ||w(k)-w(k+1)|| < epsilon, epsilon must be > 0
 
 % - Second perceptron will always finish 1 or 2 epochs faster than the
-% first perceptron, since P2 doesn't go through all the patterns to check
-% whether weight changes are required or not. P2 simply checks the weight
-% distance at the end of each epoch.
+% first perceptron (on the 1st dataset), since P2 doesn't go through all
+% the patterns to check whether weight changes are required or not.
+% P2 simply checks the weight distance after each pattern.
+
+% - On the second dataset, P1 is guaranteed to find the linear separation.
+% P2 has a high chance of getting really close to a linear separation, but
+% it gets stopped by the weight distance terminal condition before it finds
+% the solution.
 
 % - An epsilon that is bellow a certain threshold is guaranteed to find the
-% solution to a linear separable problem. Here the threshold is the
-% learning rate.
+% solution to a linear separable problem, if there is a large enough gap
+% between the 2 different categories of the dataset. Here the threshold is
+% the learning rate.
 
 % - If epsilon > learning rate, there is a big chance that P2 will stop
 % without managing to find the linear solution.
 
 %% Conclusions:
+% - P2 is not guaranteed to find a solution to a linear separated problem.
+% It's success chance depends on how close the 2 categories are from each
+% other. The smaller the gap between the 2 categories, the smaller the
+% chances of success.
+
 % - Epsilon greatly depends on the learning rate. If epsilon < learning rate,
 % then a solution will always be achieved. If epsilon > learning rate, then
 % depending on how much larger epsilon is, a solution might never be
